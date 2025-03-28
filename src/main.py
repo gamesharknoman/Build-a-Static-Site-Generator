@@ -1,18 +1,12 @@
 from textnode import TextNode, TextType
 from htmlnode import *
+from fuctions import *
 
 def main():
-    text_node = TextNode("This is some anchor text", TextType.LINK, "https://www.boot.dev")
-    node = ParentNode(
-    "p",
-    [
-        LeafNode("b", "Bold text"),
-        LeafNode(None, "Normal text"),
-        LeafNode("i", "italic text"),
-        LeafNode(None, "Normal text"),
-    ],
+    node = TextNode(
+        "This is text with an ![image](https://i.imgur.com/zjjcJKZ.png) and another ![second image](https://i.imgur.com/3elNhQu.png)",
+        TextType.TEXT,
     )
-
-    node.to_html()
-    print(node)
+    test = split_nodes_image([node])
+    print(test)
 main()
